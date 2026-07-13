@@ -2,6 +2,13 @@ import streamlit as st
 import pandas as pd
 from datetime import datetime
 
+try:
+    from fengshui_lib import PreciseCalendar, TimeSafetyEngine, HuangDaoEngine
+    st.success("模組匯入成功！")
+except Exception as e:
+    st.error(f"匯入發生錯誤: {e}")
+    st.stop() # 程式在這裡停下，您就可以看到具體是哪一行出錯
+
 # 使用模組錯誤處理，避免 App 因為套件安裝失敗而直接閃退
 try:
     import sxtwl
